@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% block title %}
+<<<<<<< HEAD
+	{% if ban = "entrada" %}
+=======
+	{% if ban = entrada %}
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+		Reporte por entrada
+	{% else %}
+		Reporte por salida
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+<<<<<<< HEAD
+	<style type="text/css">
+	.cursor{
+		 cursor:pointer;
+	}
+	</style>
+	
+	<h5>Reporte</h5>
+	{% if user.is_authenticated and user.is_superuser %}	
+
+		<form action="." method="POST" enctype = "multiplar/form-data">
+			
+			{% csrf_token %}
+			<select name="sede">
+				{% for p in sedes%}
+					<option>{{p.nombre_sede}}</option>
+				{% endfor %}
+			</select>
+			{% for field in form %}
+				{% if field.name  = "fecha_inicio" %}
+					<label>Fecha inicio</label>
+					 <input id="id_fecha_inicio" type="date" name = "fecha_inicio" class="datepicker cursor"  > 
+				{% endif %}
+				{% if field.name  = "fecha_fin" %}
+					<label>Fecha fin</label>
+					 <input id="id_fecha_fin" type="date" name = "fecha_fin" class="datepicker cursor" > 
+				{% endif %}
+				
+			{% endfor %}
+			{% if ban = "entrada" or ban = "salida"%}
+				{{men}}
+			{% else %}
+				{{men}}
+			{% endif %}
+			<br>
+			<br>
+			<button class="btn waves-effect waves-light" type="submit" >Generar
+				<i class="material-icons right">note_add</i>
+			</button>
+			<button class="btn waves-effect waves-light" type="reset" >Limpiar
+				<i class="material-icons right">loop</i>
+			</button>
+			
+		</form>
+		<br>		
+		{% if repor %}
+				<a class="btn waves-effect waves-light" href="/pdf/{{fecha_inicio}}/{{fecha_fin}}/{{ban}}" >Generar PDF
+				<i class="material-icons right">subject</i>
+			</a>
+
+				{% if ban = "entrada" %}
+					<h5>Reporte de Entradas </h5>
+=======
+	<h5>Reporte</h5>
+	{% if user.is_authenticated and user.is_superuser %}	
+		<form action="." method="POST" enctype = "multiplar/form-data">
+			{% csrf_token %}
+			{% for field in form %}
+				{% if field.name  = "fecha_inicio" %}
+					<label>Fecha inicio</label>
+					 <input id="id_fecha_inicio" type="date" name = "fecha_inicio" class="datepicker" > 
+				{% endif %}
+				{% if field.name  = "fecha_fin" %}
+					<label>Fecha fin</label>
+					 <input id="id_fecha_fin" type="date" name = "fecha_fin" class="datepicker" > 
+				{% endif %}
+			{% endfor %}
+			{{men}}
+			<br>
+			<br>
+			<button class="btn waves-effect waves-light" type="submit" >Generar
+					<i class="material-icons right">note_add</i>
+				</button>
+				<button class="btn waves-effect waves-light" type="reset" >Limpiar
+					<i class="material-icons right">loop</i>
+				</button>
+
+		</form>		
+		{% if repor %}
+			<br>
+			<div class = "row ">
+				{% if ban = entrada %}
+					<h5>Reporte de Entradas</h5>
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+				{% else %}
+					<h5>Reporte de Salidas</h5>
+				{% endif %}
+				<table class= "bordered striped highlight centered">
+					<thead>
+						<tr>
+<<<<<<< HEAD
+							{% if ban == "entrada" %}
+=======
+							{% if ban = entrada %}
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+								<th>Numero entrada</th>
+							{% else %}
+								<th>Numero salida</th>
+							{% endif %}
+							<th>Fecha</th>
+							<th>Producto</th>
+							<th>Cantidad</th>
+<<<<<<< HEAD
+							{% if ban = "entrada" %}
+=======
+							{% if ban = entrada %}
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+								<th>Referencia</th>
+							{% else %}
+								<th>Tipo salida</th>
+							{% endif %}
+						</tr>
+					</thead>
+					{% for p in repor %}
+						<tbody>
+							<td>{{p.id}}</td>
+<<<<<<< HEAD
+							{% if ban = "entrada" %}
+=======
+							{% if ban = entrada %}
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+								<td>{{ p.fecha_ingreso }}</td>
+							{% else %}
+								<td>{{ p.fecha_salida }}</td>
+							{% endif %}
+							<td>{{ p.producto }}</td>
+							<td>{{ p.cantidad }}</td>
+<<<<<<< HEAD
+							{% if ban = "entrada" %}
+=======
+							{% if ban = entrada %}
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+								<td>{{ p.referencia.razon_social.ciudad }}</td>
+							{% else %}
+								<td>{{ p.tipo_salida }}</td>
+							{% endif %}
+							
+						</tbody>
+					{% endfor %}
+					
+				</table>
+<<<<<<< HEAD
+			<br>
+		{% else%}
+			<h6>{{men_2}}</h6>
+=======
+			</div>
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+		{% endif %}
+	{% else %}
+		{% if user.is_authenticated and user.is_superuser = False %}
+			<p>Solo una cuenta administrador puede ver el contenido</p>
+		{% else %}
+			<P>Debes estar autenticado para poder ver el contenido</P>
+			<a  class="waves-effect waves-light btn" href="{% url 'vista_login' %}"><i class="material-icons left medium">supervisor_account</i>Iniciar Sesion</a>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+		{% endif %}
+	{% endif %}
+{% endblock %}

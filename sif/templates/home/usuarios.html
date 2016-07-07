@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title%}
+	{{ title }}
+{% endblock %}
+
+{% block content %}
+<<<<<<< HEAD
+	<h2 align="center">Usuarios</h2>
+	{% if user.is_authenticated %}
+		
+		<a  class="waves-effect waves-light btn" href="{% url 'vista_registro' %}"><i class="material-icons right">queue</i>Nuevo</a>	
+
+=======
+	<h5>Usuarios</h5>
+	{% if user.is_authenticated %}
+		<h2 align="center">Usuarios</h2>
+		<a  class="waves-effect waves-light btn" href="{% url 'vista_registro' %}"><i class="material-icons right">queue</i>Nuevo</a>	
+		<div class= "row">
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+	 		<div >
+				{% if users %}
+					<table class="bordered striped highlight centered">
+				        <thead>
+				          <tr>
+				          	  <th data-field="id">Identificacion</th>
+				              <th data-field="fecha">Nombres</th>
+				              <th data-field="prod">Apellidos</th>
+				              <th data-field="cant">Telefono</th>
+				              <th data-field="tipo_user">Tipo Usuario</th>
+				              {% if user.is_staff%}
+<<<<<<< HEAD
+			              	    <th data-field="options">Opcion</th>
+			              	  {% else %}
+			              	    <th data-field="options">Opciones</th>
+			                  {% endif %}
+=======
+			              	<th data-field="options">Opcion</th>
+			              {% else %}
+			              	<th data-field="options">Opciones</th>
+			              {% endif %}
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+				          </tr> 
+				        </thead>
+				        <tbody>
+				        	{%for i in users %}
+					        	<tr>
+					        		<td>{{i.identificacion}}</td>
+					        		<td>{{i.nombre}}</td>
+					        		<td>{{i.apellido}}</td>
+					        		<td>{{i.telefono}}</td>
+					        		{% if i.user.is_superuser = True %}
+					        			<td> Administrador</td>
+					        		{% else %}
+					        			<td>Operador</td>
+					        		{% endif %}
+<<<<<<< HEAD
+					        		<td>
+					        			<a href="/proveedor/{{i.id}}"><i class="material-icons enlaces">visibility</i>Ver</a>
+									    <a href="/edit/proveedor/{{ i.id }}"><i class="material-icons enlaces">description</i>Editar</a>
+					        			{% if i.user.is_active = True %}
+							        		<a href="/inh_user/{{i.id}}"><i class="material-icons enlaces">not_interested</i>Inhabilitar</a>
+								        {% else %}
+								        	<a href="/act_user/{{i.id}}"><i class="material-icons enlaces">done</i>Habilitar</td>		          	
+								        {% endif %}
+					        			
+									    
+					        		</td>
+=======
+					        		<td ><a class="mdl-navigation__link " href="/usuario/{{i.id}}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">visibility</i>Ver</a>
+							        <a class="mdl-navigation__link " href="/edit/user/{{i.id}}"><i class="mdl-color-text--blue-grey-400 material-icons " role="presentation">description</i>Editar</a>
+							        {% if i.user.is_active = True %}
+							        	<a href="/inh_user/{{i.id}}">Inhabilitar</a>
+							        {% else %}
+							        	<a href="/act_user/{{i.id}}">Habilitar</td>		          	
+							        {% endif %}
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+					        	</tr>
+					        {% endfor %}
+				        </tbody>
+				    </table>			    
+				{% else %}
+					<h5><b>No existen usuarios disponibles</b></h5>
+				{% endif %}
+				<br>
+				<a  class="waves-effect waves-light btn" href="{% url 'vista_lista_usuarios' %}"><i class="material-icons left">skip_previous</i>Regresar</a>	
+			</div>
+<<<<<<< HEAD
+	
+=======
+		</div>
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+	{% else %}
+		{% if user.is_authenticated and user.is_superuser = False %}
+			<p>Solo una cuenta administrador puede crear una clave</p>
+		{% else %}
+			<P>Debes estar autenticado para poder ver el contenido</P>
+			<a  class="waves-effect waves-light btn" href="{% url 'vista_login' %}"><i class="material-icons left medium">supervisor_account</i>Iniciar Sesion</a>
+		{% endif %}
+	{% endif %}
+<<<<<<< HEAD
+	<br>
+=======
+
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+{% endblock %}

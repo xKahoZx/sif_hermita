@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<<<<<<< HEAD
+	Producto
+=======
+	producto
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+{% endblock %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+<<<<<<< HEAD
+  	   
+=======
+  	<div class="row center" >
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+          <div class="col s12 m7">
+            <div class="card Large">
+              <div class="card-image">
+                <img src="/media/{{producto.imagen}}" height="250px">
+                <span class="card-title indigo darken-1">{{producto.nombre}}</span>
+              </div>
+              <div class="card-content">
+                {% if producto.descripcion == ""%}
+                  <p><b>Descripcion </b>Sin descripcion</p>
+                {% else %}
+                  <p><b>Observacion:</b> {{ producto.descripcion }} </p>
+                {% endif %}
+                
+                <p><b>Precio:</b> {{ producto.valor }}</p>
+                <p> <b>Cantidad disponible:</b> {{ producto.cantidad }}</p>
+                <p><b>dimensiones:</b> {{ producto.dimenciones }} </p>
+                <br>
+<<<<<<< HEAD
+              	<p><a  href="/media/codes/{{ producto.codigobarras }}.png" download="{{producto.codigobarras }}.png" >
+                  <img src="/media/codes/{{ producto.codigobarras }}.png" width="230px"></a></p><br>
+=======
+              	<p><a  href="/media/codes/{{ producto.codigobarras }}.svg" download="custom-filename.svg" >
+                  <img src="/media/codes/{{ producto.codigobarras }}.svg"></a></p><br>
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+              </div>
+              <div class="card-action">
+                <a  href="/producto/">Lista de productos</a>
+              </div>
+            </div>
+          </div>
+<<<<<<< HEAD
+      
+=======
+      </div>
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+    {% else %}
+      <P>Debes estar autenticado para poder ver el contenido</P>
+      <a  class="waves-effect waves-light btn" href="{% url 'vista_login' %}"><i class="material-icons left medium">supervisor_account</i>Iniciar Sesion</a>
+    {% endif %}
+	
+	
+{% endblock %}	

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title%}
+	Generar cotizacion
+{% endblock %}
+
+{% block content %}
+	
+<<<<<<< HEAD
+	{% if info_enviado = 0 %}
+		<form action= "."method = "POST">
+			{% csrf_token %}
+			{{ form.as_p }}		
+			<input type = "submit" value = "Siguiente"/>
+		</form>
+	{% endif %}
+
+	{% if info_enviado = 1 %}
+		<form action= "."method = "POST">
+			{% csrf_token %}
+			{{ form.as_p }}		
+			<input type = "submit" value = "Agregar"/>	
+			<input type="submit" value="Enviar">		
+		</form>
+	{% endif %}
+	{% if lista %}
+		<table>
+	        <thead>
+	          <tr>
+	              <th data-field="producto">Producto</th>
+	              <th data-field="cantidad">Cantidad</th>
+	              <th data-field="total">Total</th>
+	              <th data-field="observacion">Observacion</th>
+	          </tr>
+	        </thead>
+
+	        <tbody>
+	        	{% for producto,cantidad,total,des in lista %}
+	        		<tr>
+						<td>{{ producto }}</td>
+						<td>{{ cantidad }}</td>
+						<td>{{ total }}</td>
+						<td>{{ des }}</td>
+					</tr>
+				{% endfor %}
+	        </tbody>
+	    </table>
+            
+	
+		
+	{% endif %}
+
+
+	
+	<br>
+=======
+	
+	<form action= "."method = "POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		
+		{% if agregado%}
+			<input type = "submit" value = "Enviar Correo"/>
+		{% endif %}
+		<input type = "submit" value = "Agregar"/>
+	</form>
+
+	{% if info_enviado %}
+		{% for p in lista %}
+			a
+		{% endfor %}		
+	{% endif%}
+
+	
+>>>>>>> 8bf3e0241d0b5598f8167dfcfdabe3bfe8c4feba
+{% endblock %}
